@@ -15,12 +15,18 @@ const routes: Routes = [
       .then(m => m.DashboardModule),
     canActivate: [AuthGuard]
   },
-
   {
-path:'tarefas',
-loadChildren: () => import('./tarefas/tarefa.module')
-.then(m => m.TarefaModule)
+    path: 'tarefas',
+    loadChildren: () => import('./tarefas/tarefa.module')
+      .then(m => m.TarefaModule)
+  },
+  {
+    path: 'contatos',
+    loadChildren: () => import('./contatos/contato.module')
+      .then(m => m.ContatoModule)
+
   }
+
 ];
 
 @NgModule({

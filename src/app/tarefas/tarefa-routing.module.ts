@@ -6,7 +6,7 @@ import { ExcluirTarefaComponent } from './excluir/excluir-tarefa.component';
 import { InserirTarefaComponent } from './inserir/inserir-tarefa.component';
 import { ListarTarefaComponent } from './listar/listar-tarefa.component';
 import { FormsTarefaResolver } from './services/forms-tarefa.resolver';
-
+import { VisualizarTarefaResolver } from './services/visualizar-tarefa.resolver';
 import { TarefaAppComponent } from './tarefa-app.component';
 
 const routes: Routes = [
@@ -25,8 +25,8 @@ const routes: Routes = [
       {
         path: 'excluir/:id',
         component: ExcluirTarefaComponent,
-        resolve: { tarefa: FormsTarefaResolver }
-      },
+        resolve: { tarefa: VisualizarTarefaResolver }
+      }
     ]
   }
 ];

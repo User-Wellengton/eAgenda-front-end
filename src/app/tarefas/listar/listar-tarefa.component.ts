@@ -10,7 +10,7 @@ import { ListarTarefaViewModel } from '../view-models/listar-tarefa.view-model';
 export class ListarTarefaComponent implements OnInit {
   public tarefas$: Observable<ListarTarefaViewModel[]>;
 
-  constructor(private tarefaService : TarefaService) { }
+  constructor(private tarefaService: TarefaService) { }
 
   ngOnInit(): void {
     this.tarefas$ = this.tarefaService.selecionarTodos();

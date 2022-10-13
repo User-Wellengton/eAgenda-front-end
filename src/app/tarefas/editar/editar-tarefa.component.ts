@@ -18,8 +18,7 @@ export class EditarTarefaComponent implements OnInit {
   public formItens: FormGroup;
   public prioridades = Object.values(PrioridadeTarefaEnum).filter(v => !Number.isFinite(v));
 
-  public tarefaFormVM: FormsTarefaViewModel = new FormsTarefaViewModel();
-
+  public tarefaFormVM: FormsTarefaViewModel = new FormsTarefaViewModel()
 
   constructor(
     titulo: Title,
@@ -37,8 +36,7 @@ export class EditarTarefaComponent implements OnInit {
     this.formTarefa = this.fb.group({
       titulo: ['', [Validators.required, Validators.minLength(3)]],
       prioridade: ['', [Validators.required]]
-    });
-
+    })
 
     this.formItens = this.fb.group({
       tituloItem: ['']
@@ -48,9 +46,8 @@ export class EditarTarefaComponent implements OnInit {
       id: this.tarefaFormVM.id,
       titulo: this.tarefaFormVM.titulo,
       prioridade: this.tarefaFormVM.prioridade
-    });
-  }
-
+    })
+  };
 
   get titulo() {
     return this.formTarefa.get('titulo');
@@ -66,10 +63,8 @@ export class EditarTarefaComponent implements OnInit {
 
   get itens(): ItemTarefaViewModel[] {
     return this.tarefaFormVM.itens
-      .filter(a => a.status !== StatusItemTarefa.Removido);
-  }
-
-
+      .filter(a => a.status !== StatusItemTarefa.Removido)
+  };
 
   public adicionarItem(): void {
     if (this.tituloItem) {
@@ -81,8 +76,7 @@ export class EditarTarefaComponent implements OnInit {
 
       this.formItens.reset();
     }
-  }
-
+  };
 
   public removerItem(item: ItemTarefaViewModel): void {
     if (item) {
@@ -91,8 +85,7 @@ export class EditarTarefaComponent implements OnInit {
           item.status = StatusItemTarefa.Removido;
       });
     }
-  }
-
+  };
 
   public atualizarItem(item: ItemTarefaViewModel): void {
     if (item) {
@@ -101,9 +94,7 @@ export class EditarTarefaComponent implements OnInit {
           item.concluido = !item.concluido;
       })
     }
-  }
-
-
+  };
 
   public gravar() {
     if (this.formTarefa.invalid) return;
@@ -116,8 +107,7 @@ export class EditarTarefaComponent implements OnInit {
         next: (tarefaEditada) => this.processarSucesso(tarefaEditada),
         error: (erro) => this.processarFalha(erro)
       });
-  }
-
+  };
 
   private processarSucesso(tarefa: FormsTarefaViewModel) {
     this.router.navigate(['/tarefas/listar']);
@@ -127,5 +117,4 @@ export class EditarTarefaComponent implements OnInit {
     console.log(erro);
   }
 
-
-}
+};

@@ -8,13 +8,9 @@ export class FormsTarefaViewModel {
   itens: ItemTarefaViewModel[] = [];
 }
 
-
-export class ItemTarefaViewModel{
-id: string;
-titulo: string;
-status: StatusItemTarefa;
-concluido: boolean;
-
+export class ItemTarefaViewModel {
+  id: string;
+  titulo: string;
+  status: StatusItemTarefa;
+  concluido: boolean;
 }
-
-

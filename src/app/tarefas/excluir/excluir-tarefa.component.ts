@@ -12,16 +12,16 @@ import { VisualizarTarefaViewModel } from '../view-models/visualizar-tarefa.view
 })
 export class ExcluirTarefaComponent implements OnInit {
   public tarefaFormVM: VisualizarTarefaViewModel = new VisualizarTarefaViewModel();
-
+  
 
   constructor(
     titulo: Title,
     private route: ActivatedRoute,
     private router: Router,
-    private tarefaService: TarefaService) {
-    titulo.setTitle('Excluir Tarefa - e-Agenda');
-
-   }
+    private tarefaService: TarefaService
+  ) {
+    titulo.setTitle('Excluir Tarefa - e-Agenda')
+  }
 
   ngOnInit(): void {
     this.tarefaFormVM = this.route.snapshot.data['tarefa'];
@@ -46,6 +46,4 @@ export class ExcluirTarefaComponent implements OnInit {
     }
   }
 
-}
-
-
+};
