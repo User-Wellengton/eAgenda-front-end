@@ -44,14 +44,14 @@
 
         <div class="form-group mb-3 position-relative">
           <label class="form-label">Empresa:</label>
-          <input [ngClass]="empresa?.touched && empresa?.invalid ? 'is-invalid' : ''" formControlName="empresa"
+          <input formControlName="empresa"
             class="form-control" type="text" placeholder="Digite a empresa do contato se houver" />
 
         </div>
 
         <div class="form-group mb-3 position-relative">
-          <label class="form-label">Contato:</label>
-          <input [ngClass]="cargo?.touched && cargo?.invalid ? 'is-invalid' : ''" formControlName="cargo"
+          <label class="form-label">Cargo:</label>
+          <input  formControlName="cargo"
             class="form-control" type="text" placeholder="Digite o cargo do contato se houver" />
 
         </div>

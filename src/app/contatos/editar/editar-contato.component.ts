@@ -29,6 +29,9 @@ export class EditarContatoComponent implements OnInit {
   ngOnInit(): void {
     this.contatoFormVM = this.route.snapshot.data['contato'];
 
+    this.contatoFormVM.id = this.route.snapshot.params['id'];
+
+
     this.formContato = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -43,8 +46,8 @@ export class EditarContatoComponent implements OnInit {
       nome: this.contatoFormVM.nome,
       email: this.contatoFormVM.email,
       telefone: this.contatoFormVM.telefone,
-      empresa: this.contatoFormVM.empresa,
-      cargo: this.contatoFormVM.cargo,
+      empresa: this.contatoFormVM.empresa ? this.contatoFormVM.empresa : '',
+      cargo: this.contatoFormVM.cargo ? this.contatoFormVM.cargo : ''
 
     });
 
@@ -73,26 +76,23 @@ export class EditarContatoComponent implements OnInit {
 
 
   public gravar() {
-    if (this.formContato.invalid) return;
+    if (this.formContato.invalid)
+      return;
 
     this.contatoFormVM = Object.assign({}, this.contatoFormVM, this.formContato.value);
 
-
     this.contatoService.editar(this.contatoFormVM)
       .subscribe({
-        next: (contatoEditada) => this.processarSucesso(contatoEditada),
+        next: (contatoEditado) => this.processarSucesso(contatoEditado),
         error: (erro) => this.processarFalha(erro)
-      });
+      })
   }
 
-  private processarSucesso(tarefa: FormsContatoViewModel) {
+  private processarSucesso(contatoEditado: FormsContatoViewModel) {
     this.router.navigate(['/contatos/listar']);
   }
 
   private processarFalha(erro: any) {
     console.log(erro);
   }
-
-
-
 }

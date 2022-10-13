@@ -21,7 +21,7 @@ export class ContatoService {
   public inserir(contato: FormsContatoViewModel): Observable<FormsContatoViewModel> {
     const resposta = this.http
       .post<FormsContatoViewModel>(this.apiUrl + 'contatos', contato, this.obterHeadersAutorizacao())
-      .pipe(map(this.processarDados), catchError(this.processarFalha));
+      .pipe(map(this.processarSucesso), catchError(this.processarFalha));
 
     return resposta;
   }
@@ -29,7 +29,7 @@ export class ContatoService {
   public editar(contato: FormsContatoViewModel): Observable<FormsContatoViewModel> {
     const resposta = this.http
       .put<FormsContatoViewModel>(this.apiUrl + 'contatos/' + contato.id, contato, this.obterHeadersAutorizacao())
-      .pipe(map(this.processarDados), catchError(this.processarFalha));
+      .pipe(map(this.processarSucesso), catchError(this.processarFalha));
 
     return resposta;
   }
@@ -37,7 +37,7 @@ export class ContatoService {
   public excluir(id: string): Observable<string> {
     const resposta = this.http
       .delete<string>(this.apiUrl + 'contatos/' + id, this.obterHeadersAutorizacao())
-      .pipe(map(this.processarDados), catchError(this.processarFalha));
+      .pipe(map(this.processarSucesso), catchError(this.processarFalha));
 
       return resposta;
   }
@@ -45,7 +45,7 @@ export class ContatoService {
   public selecionarTodos(): Observable<ListarContatoViewModel[]> {
     const resposta = this.http
       .get<ListarContatoViewModel[]>(this.apiUrl + 'contatos', this.obterHeadersAutorizacao())
-      .pipe(map(this.processarDados), catchError(this.processarFalha));
+      .pipe(map(this.processarSucesso), catchError(this.processarFalha));
 
     return resposta;
   }
@@ -53,7 +53,7 @@ export class ContatoService {
   public selecionarPorId(id: string): Observable<FormsContatoViewModel> {
     const resposta = this.http
       .get<FormsContatoViewModel>(this.apiUrl + 'contatos/' + id, this.obterHeadersAutorizacao())
-      .pipe(map(this.processarDados), catchError(this.processarFalha));
+      .pipe(map(this.processarSucesso), catchError(this.processarFalha));
 
     return resposta;
   }
@@ -62,7 +62,7 @@ export class ContatoService {
   public selecionarContatoCompletaPorId(id: string): Observable<VisualizarContatoViewModel> {
     const resposta = this.http
       .get<VisualizarContatoViewModel>(this.apiUrl + 'contatos/visualizacao-completa/' + id, this.obterHeadersAutorizacao())
-      .pipe(map(this.processarDados), catchError(this.processarFalha));
+      .pipe(map(this.processarSucesso), catchError(this.processarFalha));
 
     return resposta;
   }
@@ -81,7 +81,7 @@ export class ContatoService {
   }
 
 
-  private processarDados(resposta: any) {
+  private processarSucesso(resposta: any) {
     if (resposta?.sucesso)
       return resposta.dados;
     else
