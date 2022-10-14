@@ -1,4 +1,4 @@
-export class VisualizarContatoViewModel {
+export class FormsContatoViewModel {
   id: string;
   nome: string;
   email: string;

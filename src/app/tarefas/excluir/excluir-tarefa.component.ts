@@ -25,8 +25,8 @@ export class ExcluirTarefaComponent implements OnInit {
 
   ngOnInit(): void {
     this.tarefaFormVM = this.route.snapshot.data['tarefa'];
-    this.tarefaFormVM.id = this.route.snapshot.params['id'];
-  
+   
+
   }
 
   public gravar() {

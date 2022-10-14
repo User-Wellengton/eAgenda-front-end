@@ -29,7 +29,7 @@ export class EditarContatoComponent implements OnInit {
   ngOnInit(): void {
     this.contatoFormVM = this.route.snapshot.data['contato'];
 
-    this.contatoFormVM.id = this.route.snapshot.params['id'];
+    
 
 
     this.formContato = this.fb.group({
