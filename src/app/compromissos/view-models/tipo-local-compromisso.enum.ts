@@ -1,4 +1,4 @@
-export enum TipoLocalizacaoCompromissoEnum{
-  Remoto = 0,
-  Presencial = 1
+export enum TipoLocalizacaoCompromissoEnum {
+  Remoto,
+  Presencial
 }

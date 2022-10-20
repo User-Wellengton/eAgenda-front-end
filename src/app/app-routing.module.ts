@@ -30,6 +30,11 @@ const routes: Routes = [
     path: 'compromissos',
     loadChildren: () => import('./compromissos/compromisso.module')
       .then(m => m.CompromissoModule)
+  },
+  {
+    path: 'categorias',
+    loadChildren: () => import('./categorias/categoria.module')
+      .then(m => m.CategoriaModule)
   }
 
 
