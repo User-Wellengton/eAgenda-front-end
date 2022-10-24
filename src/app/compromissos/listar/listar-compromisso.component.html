@@ -43,6 +43,7 @@
               <td>{{ c.data | date: 'dd/MM/yyyy'}}</td>
               <td class="cursor-help" title="{{ c.contato.telefone }}"> {{ c.contato.nome }}</td>
               <td class="d-grid d-md-block">
+                
                 <button [routerLink]="['/compromissos/editar', c.id]"
                   type="button" class="btn btn-sm btn-primary me-0 me-md-1 mb-1 mb-md-auto">
                   <i class="bi bi-pencil"></i>

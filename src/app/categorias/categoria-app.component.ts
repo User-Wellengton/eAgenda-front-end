@@ -6,11 +6,4 @@ import { Component, OnInit } from '@angular/core';
     <router-outlet></router-outlet>
   `
 })
-export class CategoriaAppComponent {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class CategoriaAppComponent {}
