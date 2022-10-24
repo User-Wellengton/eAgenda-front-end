@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/services/auth.guard';
 import { CategoriaAppComponent } from './categoria-app.component';
+import { EditarCategoriaComponent } from './editar/editar-categoria.component';
+import { ExcluirCategoriaComponent } from './excluir/excluir-categoria.component';
+import { InserirCategoriaComponent } from './inserir/inserir-categoria.component';
+import { ListarCategoriaComponent } from './listar/listar-categoria.component';
+import { FormsCategoriaResolver } from './services/forms-categoria.resolver';
+import { VisualizarCategoriaResolver } from './services/visualizar-categoria.resolver';
 
 const routes: Routes = [
   {

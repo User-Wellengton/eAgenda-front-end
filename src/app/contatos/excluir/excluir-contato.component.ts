@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContatoService } from '../services/contato.service';
-import { VisualizarContatoViewModel } from '../view-models/forms-contato.view-model';
+import { VisualizarContatoViewModel } from '../view-models/visualizar-contato.view-model';
+
 
 @Component({
   selector: 'app-excluir-contato',
@@ -23,7 +24,7 @@ export class ExcluirContatoComponent implements OnInit {
 
   ngOnInit(): void {
     this.contatoFormVM = this.route.snapshot.data['contato'];
-    
+
   }
 
   public gravar() {

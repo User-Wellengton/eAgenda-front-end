@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContatoService } from '../services/contato.service';
-import { FormsContatoViewModel } from '../view-models/visualizar-contato.view-model';
+import { FormsContatoViewModel } from '../view-models/forms-contato.view-model';
+
 
 @Component({
   selector: 'app-editar-contato',
@@ -29,7 +30,7 @@ export class EditarContatoComponent implements OnInit {
   ngOnInit(): void {
     this.contatoFormVM = this.route.snapshot.data['contato'];
 
-    
+
 
 
     this.formContato = this.fb.group({

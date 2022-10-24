@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ContatoService } from '../services/contato.service';
-import { FormsContatoViewModel } from '../view-models/visualizar-contato.view-model';
+import { FormsContatoViewModel } from '../view-models/forms-contato.view-model';
+
 
 @Component({
   selector: 'app-inserir-contato',
