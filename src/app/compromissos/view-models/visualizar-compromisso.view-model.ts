@@ -11,8 +11,8 @@ export class VisualizarCompromissoViewModel {
   local: string;
   link: string;
   data: Date;
-  horaInicio: Timestamp<Number>;
-  horaTermino: Timestamp<Number>;
+  horaInicio: Timestamp<string>;
+  horaTermino: Timestamp<string>;
   contato: FormsContatoViewModel;
   contatoId: string;
 

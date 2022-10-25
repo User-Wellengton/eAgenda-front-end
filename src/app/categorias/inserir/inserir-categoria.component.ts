@@ -47,7 +47,7 @@ export class InserirCategoriaComponent implements OnInit {
 
     this.categoriaService.inserir(this.categoriaFormVM)
       .subscribe({
-        next: (contatoInserida) => this.processarSucesso(contatoInserida),
+        next: (categoriaInserida) => this.processarSucesso(categoriaInserida),
         error: (erro) => this.processarFalha(erro)
 
       })
@@ -55,7 +55,7 @@ export class InserirCategoriaComponent implements OnInit {
 
 
   private processarSucesso(categoria: FormsCategoriaViewModel): void {
-    this.router.navigate(['/categoriass/listar']);
+    this.router.navigate(['/categorias/listar']);
   }
 
   private processarFalha(erro: any) {

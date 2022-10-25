@@ -157,5 +157,5 @@ export class EditarCompromissoComponent implements OnInit {
     this.local?.patchValue("");
     this.local?.disable();
   }
-  
+
 }

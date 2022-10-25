@@ -9,8 +9,8 @@ export class FormsCompromissoViewModel {
   public local: string;
   public link: string;
   public data: Date;
-  public horaInicio: Timestamp<Number>;
-  public horaTermino: Timestamp<Number>;
+  public horaInicio: Timestamp<string>;
+  public horaTermino: Timestamp<string>;
   public contato: FormsContatoViewModel;
   public contatoId: string;
 }

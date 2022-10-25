@@ -5,9 +5,8 @@ import { TipoLocalizacaoCompromissoEnum } from "./tipo-local-compromisso.enum";
 export class ListarCompromissoViewModel {
   public id: string;
   public assunto: string;
-  public tipoLocalizacaoCompromisso: TipoLocalizacaoCompromissoEnum;
-  public local: string;
-  public link: string;
-  public data: Date;
-  public contato: FormsContatoViewModel;
+  public data: string;
+  public horaInicio: string;
+  public horaTermino: string;
+  public nomeContato: string;
 }
