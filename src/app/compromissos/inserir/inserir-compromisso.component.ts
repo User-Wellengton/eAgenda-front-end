@@ -36,7 +36,7 @@ export class InserirCompromissoComponent implements OnInit {
 
 
   ) {
-    titulo.setTitle('Cadastrar Contato - e-Agenda')
+    titulo.setTitle('Cadastrar Compromisso - e-Agenda')
   }
 
   ngOnInit(): void {
