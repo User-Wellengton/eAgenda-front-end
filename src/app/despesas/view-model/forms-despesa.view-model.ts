@@ -6,7 +6,7 @@ export class FormsDespesaViewModel {
   valor: number;
   data: Date;
   formaPagamento: FormaPagamentoEnum;
-  categoriasSelecionadas: CategoriaSelecionadaViewModel[] = [];
+  categorias: CategoriaSelecionadaViewModel[] = [];
 }
 
 

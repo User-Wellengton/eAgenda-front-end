@@ -80,16 +80,16 @@ export class InserirDespesaComponent implements OnInit {
       categoria.titulo = this.categoriaAtual.titulo
       categoria.selecionada = true;
 
-      this.despesaFormVM.categoriasSelecionadas.push(categoria);
+      this.despesaFormVM.categorias.push(categoria);
 
       this.formCategoria.reset();
     }
   }
 
   public removerCategoria(categoria: CategoriaSelecionadaViewModel): void {
-    this.despesaFormVM.categoriasSelecionadas.forEach((x, index) => {
+    this.despesaFormVM.categorias.forEach((x, index) => {
       if (x === categoria)
-        this.despesaFormVM.categoriasSelecionadas.splice(index, 1);
+        this.despesaFormVM.categorias.splice(index, 1);
     })
   }
 
