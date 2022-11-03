@@ -20,11 +20,13 @@ export class EditarDespesaComponent implements OnInit {
   public formasPagamento = Object.values(FormaPagamentoEnum)
     .filter(v => !Number.isFinite(v));
 
-  public despesaFormVM: FormsDespesaViewModel = new FormsDespesaViewModel();
+    public despesaFormVM: FormsDespesaViewModel = new FormsDespesaViewModel();
 
-  public categorias$: Observable<ListarCategoriaViewModel[]>;
+    public categorias$: Observable<ListarCategoriaViewModel[]>;
 
-  public categoriaAtual : ListarCategoriaViewModel;
+    public categoriasSelecionadas: CategoriaSelecionadaViewModel[];
+
+    public categoriaAtual : ListarCategoriaViewModel;
 
 
   constructor(
@@ -41,6 +43,10 @@ export class EditarDespesaComponent implements OnInit {
   ngOnInit(): void {
 
     this.despesaFormVM = this.route.snapshot.data['despesa'];
+
+    this.despesaFormVM.categorias.forEach(c => c.selecionada = true);
+
+    this.categoriasSelecionadas = this.despesaFormVM.categorias.slice();
 
     this.categorias$ = this.categoriaService.selecionarTodos();
 
@@ -86,24 +92,34 @@ export class EditarDespesaComponent implements OnInit {
 
   public adicionarCategoria(): void {
     {
-       let categoria = new CategoriaSelecionadaViewModel();
-       categoria.id = this.categoriaAtual.id
-       categoria.titulo = this.categoriaAtual.titulo
-       categoria.selecionada = true;
+      let categoria = new CategoriaSelecionadaViewModel();
+      categoria.id = this.categoriaAtual.id
+      categoria.titulo = this.categoriaAtual.titulo
+      categoria.selecionada = true;
 
-       this.despesaFormVM.categorias.push(categoria);
+      this.despesaFormVM.categorias.push(categoria);
+      this.categoriasSelecionadas.push(categoria);
 
-       this.formCategoria.reset();
-     }
-   }
+      this.formCategoria.reset();
+    }
+  }
 
-   public removerCategoria(categoria: CategoriaSelecionadaViewModel): void {
-     this.despesaFormVM.categorias.forEach((x, index) => {
-       if (x === categoria)
-         this.despesaFormVM.categorias.splice(index, 1);
-     })
-   }
+  public removerCategoria(categoria: CategoriaSelecionadaViewModel): void {
+    this.despesaFormVM.categorias.forEach((x, index) => {
+      if (x === categoria) {
 
+        x.selecionada = false;
+      }
+    })
+
+    this.categoriasSelecionadas.forEach((x, index) => {
+      if (x === categoria) {
+
+        this.categoriasSelecionadas.splice(index, 1);
+
+      }
+    })
+  }
 
 
   public gravar() {

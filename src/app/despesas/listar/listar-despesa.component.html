@@ -35,7 +35,7 @@
           <tbody class="text-center">
             <tr *ngFor="let d of (despesas$ | async)">
               <td>{{d.descricao}}</td>
-              <td>{{d.valor }}</td>
+              <td>{{d.valor | currency : 'R$ '}}</td>
               <td>{{d.data | date: 'dd/MM/yyyy' }}</td>
               <td>{{d.formaPagamento}}</td>
 
